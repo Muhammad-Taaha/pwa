@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Voice Message</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#111" />
+
+    <style>
+      body {
+        background: #111;
+        color: white;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      button {
+        font-size: 20px;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>🎧 Voice Message</h2>
+      <button onclick="playVoice()">Tap to Play</button>
+    </div>
+
+    <audio id="audio" src="voice.mp3"></audio>
+
+    <script>
+      function playVoice() {
+        document.getElementById("audio").play();
+      }
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+  </body>
+</html>
